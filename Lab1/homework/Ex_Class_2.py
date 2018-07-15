@@ -18,7 +18,7 @@ ads = get_db.customers.count({"ref": "ads"})
 
 labels = ["events", "wom", "ads"]
 colors = ["red", "gold", "green"]
-explode = [0, 0, 0, 0.2]
+explode = [0, 0.1, 0.1, 0.1]
 
 pyplot.pie(labels=labels, colors=colors, explode=explode)
 pyplot.axis("equal")
