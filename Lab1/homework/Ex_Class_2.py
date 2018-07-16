@@ -1,26 +1,18 @@
 from pymongo import MongoClient
-import matplotlib
-matplotlib.use("TkAgg")
-from matplotlib import pyplot
+uri = "mongodb://admin:admin@ds021182.mlab.com:21182/c4e"
 
-
-link = "mongodb://admin:admin@ds021182.mlab.com:21182/c4e"
-
-client = MongoClient(link)
+client = MongoClient(uri)
 
 get_db = client.get_default_database()
 
-customers = get_db["customers"]
 
-events = get_db.customers.count({"ref": "events"})
-wom = get_db.customers.count({"ref": "wom"})
-ads = get_db.customers.count({"ref": "ads"})
+collect_1 = get_db["post"]
 
-labels = ["events", "wom", "ads"]
-colors = ["red", "gold", "green"]
-explode = [0, 0.1, 0.1, 0.1]
+ngon_tinh_1 = {
+    "title": "Tôi muốn",
+    "author": "Nam Nguyễn",
+    "descripe": "Sau 1 lần anh bị các e giết khi đang say giấc nồng.. Anh thấy dân làng chúng ta cần chung tay tiêu diệt sói Tuấn Anh và Quân... Đừng để bị chúng lừa dối nhưng người nông dân chất phác như anh chẳng hạn :)) "
+    }
 
-pyplot.pie(labels=labels, colors=colors, explode=explode)
-pyplot.axis("equal")
+collect_1.insert_one(ngon_tinh_1)
 
-pyplot.show()

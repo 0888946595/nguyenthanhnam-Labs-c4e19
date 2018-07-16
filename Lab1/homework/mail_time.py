@@ -17,14 +17,16 @@ hml_to_send = html_content.replace("{{sickness}}", choice(resons))
 
 gmail = GMail('bekhoebengoan1995@gmail.com', 'Thanhnam123')
 
-msg = Message('Hello babe', to='20130075@student.hust.edu.vn', html=hml_to_send )
+msg = Message('Hello babe', to='namnguyenktxd@gmail.com', html=hml_to_send )
 now = datetime.now().hour
 time_sent = now
 loop = False
 while loop:
-    if time_sent < 7: 
+    if time_sent >> 7: 
         gmail.send(msg)
         loop = True
         print("You has sent a message at {} o'clock ".format(time_sent))
-   
+    else:
+        print()
         
+# print("You has sent a message at {} o'clock ".format(now))
