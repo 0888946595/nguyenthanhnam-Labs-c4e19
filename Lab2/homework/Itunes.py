@@ -40,10 +40,10 @@ se_download = []
 
 for li in li_list:
     search = {}
-    search_name = li.h3.string
-    search_artist = li.h4.string
+    search_name = li.h3.a
+    search_artist = li.h4.a
     print (search)
     se_download.append(search)
-dl.download (se_download)
+    dl.download (search_name)
 
     
