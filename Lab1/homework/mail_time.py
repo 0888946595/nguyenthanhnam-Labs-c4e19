@@ -18,16 +18,17 @@ hml_to_send = html_content.replace("{{sickness}}", choice(resons))
 gmail = GMail('bekhoebengoan1995@gmail.com', 'Thanhnam123')
 
 msg = Message('Hello babe', to='namnguyenktxd@gmail.com', html=hml_to_send )
-now = datetime.today().hour
-time_sent = now
-loop = False
+
+loop = True
 while loop:
-    if time_sent <= 7: 
+    now = datetime.now()
+    if now.hour == 7: 
         gmail.send(msg)
-        loop = True
-        print("You has sent a message at {} o'clock ".format(time_sent))
-    else:
-        break
+        loop = False
+    
+
+
+
         
         
 # Quân check hộ a bài tập này nhé! a import r mà a check trong thư đã gửi thì k thấy :(
